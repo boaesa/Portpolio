@@ -71,7 +71,7 @@ export default function App() {
                 </div>
               </div>
               <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative">
-                 <img src="https://picsum.photos/seed/summerbeach/1600/1000" alt="Summer Beach" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
+                 <video src="https://raw.githubusercontent.com/boaesa/Portpolio/f1abc2623092a0fc2d090b5755984b0cc6618ca5/Runway_ocean.mp4" autoPlay loop muted playsInline className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" />
               </div>
               <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
                 3D 캐릭터와 파스텔 톤의 해변 배경을 활용한 앰비언스 영상입니다. 정서적 안정과 휴식을 테마로 하여, 캐릭터의 배치와 환경의 조화를 시각화하는 데 집중했습니다.
@@ -91,7 +91,7 @@ export default function App() {
                 </div>
               </div>
               <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative">
-                 <img src="https://picsum.photos/seed/poster/1600/1000" alt="Poster Nonstop" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
+                 <img src="https://raw.githubusercontent.com/boaesa/Portpolio/d3cad62991b66bddaea28b8ca7b431433e5bb045/%5B%EC%88%99%EA%B4%91%EC%88%99%EB%A7%8C%20%EC%8B%9C%EC%A6%8C11-%EA%B4%91%EA%B3%A0%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-1%EB%B2%88%5D%20%EC%9D%B4%EB%B3%B4%EC%95%84_%EC%8B%9C%EA%B0%81%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8%EA%B3%BC_2415462.png" alt="Poster Nonstop" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
               </div>
               <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
                 숙광숙만 최우수상 포스터입니다. '멈추지 않을 숙명'이라는 슬로건을 중심으로, 숙명여대 홍보 문구를 제안했습니다.
@@ -217,9 +217,6 @@ export default function App() {
               <p>
                 Currently studying at Sookmyung Women's University, I have been honing my skills across various mediums including graphic design, UI/UX, and video production. I believe that good design is a powerful tool for communication, capable of conveying complex ideas in simple, engaging ways.
               </p>
-              <p>
-                Beyond the screen, I find inspiration in the physical world. Hiking and driving allow me to observe the changing landscapes, while my interest in geography and landscaping influences how I perceive space and structure in my digital work.
-              </p>
               <div className="pt-8 border-t border-gray-100 mt-8">
                 <h3 className="text-lg font-medium text-black mb-5 tracking-tight">Core Competencies</h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[14px]">
@@ -250,7 +247,7 @@ export default function App() {
             {selectedWork === 'summerbeach' && (
               <div className="flex flex-col gap-8">
                 <div className="aspect-[16/9] bg-gray-100 overflow-hidden relative w-full">
-                   <img src="https://picsum.photos/seed/summerbeach/1600/900" alt="Summer Beach" className="object-cover w-full h-full" referrerPolicy="no-referrer" />
+                   <video src="https://raw.githubusercontent.com/boaesa/Portpolio/f1abc2623092a0fc2d090b5755984b0cc6618ca5/Runway_ocean.mp4" autoPlay loop muted playsInline controls className="object-cover w-full h-full" />
                 </div>
                 <div>
                   <div className="flex gap-[2px] text-[11px] font-medium tracking-wider mb-4">
@@ -275,8 +272,8 @@ export default function App() {
 
             {selectedWork === 'nonstop' && (
               <div className="flex flex-col gap-8">
-                <div className="aspect-[16/9] bg-gray-100 overflow-hidden relative w-full">
-                   <img src="https://picsum.photos/seed/poster/1600/900" alt="Poster Nonstop" className="object-cover w-full h-full" referrerPolicy="no-referrer" />
+                <div className="bg-gray-100 overflow-hidden relative w-full">
+                   <img src="https://raw.githubusercontent.com/boaesa/Portpolio/f1abc2623092a0fc2d090b5755984b0cc6618ca5/%5B%EC%88%99%EA%B4%91%EC%88%99%EB%A7%8C%20%EC%8B%9C%EC%A6%8C11-%EA%B4%91%EA%B3%A0%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-1%EB%B2%88%5D%20%EC%9D%B4%EB%B3%B4%EC%95%84_%EC%8B%9C%EA%B0%81%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8%EA%B3%BC_2415462.png" alt="Poster Nonstop" className="w-full h-auto" referrerPolicy="no-referrer" />
                 </div>
                 <div>
                   <div className="flex gap-[2px] text-[11px] font-medium tracking-wider mb-4">
