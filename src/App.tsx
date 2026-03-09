@@ -132,6 +132,7 @@ export default function App() {
                   <li>Adobe Illustrator</li>
                   <li>Adobe Photoshop</li>
                   <li>Adobe InDesign</li>
+                  <li>Adobe After Effects</li>
                   <li>Figma</li>
                   <li>Premiere Pro</li>
                 </ul>
