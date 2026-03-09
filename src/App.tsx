@@ -91,7 +91,7 @@ export default function App() {
                 </div>
               </div>
               <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative">
-                 <img src="https://raw.githubusercontent.com/boaesa/Portpolio/d3cad62991b66bddaea28b8ca7b431433e5bb045/%5B%EC%88%99%EA%B4%91%EC%88%99%EB%A7%8C%20%EC%8B%9C%EC%A6%8C11-%EA%B4%91%EA%B3%A0%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-1%EB%B2%88%5D%20%EC%9D%B4%EB%B3%B4%EC%95%84_%EC%8B%9C%EA%B0%81%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8%EA%B3%BC_2415462.png" alt="Poster Nonstop" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
+                 <img src="https://raw.githubusercontent.com/boaesa/Portpolio/d3cad62991b66bddaea28b8ca7b431433e5bb045/%5B%EC%88%99%EA%B4%91%EC%88%99%EB%A7%8C%20%EC%8B%9C%EC%A6%8C11-%EA%B4%91%EA%B3%A0%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-1%EB%B2%88%5D%20%EC%9D%B4%EB%B3%B4%EC%95%84_%EC%8B%9C%EA%B0%81%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8%EA%B3%BC_2415462.png" alt="Poster Nonstop" className="object-cover object-[center_35%] w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
               </div>
               <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
                 숙광숙만 최우수상 포스터입니다. '멈추지 않을 숙명'이라는 슬로건을 중심으로, 숙명여대 홍보 문구를 제안했습니다.
