@@ -37,13 +37,18 @@ export default function App() {
       <main className="px-6 md:px-10">
         {/* Hero / Intro */}
         <section className="py-20 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-8">
-          <div className="md:col-span-4"></div>
-          <div 
-            className="md:col-span-8 text-3xl md:text-[42px] font-medium leading-[1.15] tracking-tight cursor-pointer group"
-            onClick={() => setIsPopupOpen(true)}
-          >
-            Lee Boa is a visual and media designer exploring how design shapes the way we interact and create. <span className="text-gray-400 group-hover:text-gray-600 transition-colors">Her work blends clarity, function, and emotion — always built on collaboration and curiosity.</span>
-            <div className="mt-8 flex items-center gap-2 text-[15px] text-gray-400 group-hover:text-[#141414] transition-colors font-normal tracking-normal">
+          <div className="md:col-span-12 flex flex-col items-center justify-center text-center">
+            <p className="text-[15px] font-medium tracking-wide text-gray-500 mb-4">단순한 기능보다 넓은 연결을 바라봅니다</p>
+            <div 
+              className="text-[12vw] font-bold leading-none tracking-tighter cursor-pointer group relative py-4"
+              onClick={() => setIsPopupOpen(true)}
+            >
+              <span className="relative z-10 inline-block px-2 bg-clip-text text-transparent bg-black group-hover:bg-gradient-to-r group-hover:from-purple-500 group-hover:via-pink-500 group-hover:to-orange-500 group-hover:scale-105 transition-all duration-500 ease-in-out">LEE BOA</span>
+            </div>
+            <div 
+              className="mt-12 flex items-center gap-2 text-[15px] text-gray-400 hover:text-[#141414] transition-colors font-normal tracking-normal cursor-pointer"
+              onClick={() => setIsPopupOpen(true)}
+            >
               Read more about me <ArrowRight size={16} />
             </div>
           </div>
@@ -126,14 +131,10 @@ export default function App() {
         {/* Profile Section */}
         <section id="profile" className="py-20 md:py-32 border-t border-gray-200/60 grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-4">
-            <h2 className="text-[15px] font-medium mb-1">About me</h2>
+            <h2 className="text-[15px] font-medium mb-1">About Me</h2>
             <p className="text-gray-400 text-[13px]">Lee Boa</p>
           </div>
           <div className="md:col-span-8">
-            <div className="text-2xl md:text-[32px] font-medium leading-[1.2] tracking-tight mb-20">
-              I care about building digital experiences that people actually want to use. <span className="text-gray-400">Whether it's a brand identity or a media interface, my approach is guided by curiosity, simplicity, and a constant search for better ways to communicate ideas through design.</span>
-            </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-16">
               {/* Profile Info */}
               <div>
@@ -212,7 +213,7 @@ export default function App() {
         {/* Massive Typography */}
         <div className="w-full flex justify-center items-center mt-10">
           <h1 className="text-[18vw] font-bold tracking-tighter leading-none text-[#141414] select-none whitespace-nowrap">
-            LeeBoa
+            Portpolio
           </h1>
         </div>
       </footer>
@@ -233,16 +234,16 @@ export default function App() {
             <h2 className="text-3xl font-medium mb-6 tracking-tight">About Lee Boa</h2>
             <div className="space-y-6 text-gray-600 leading-relaxed text-[15px]">
               <p>
-                시각 및 미디어 디자이너로서 저는 디지털 환경과 인간의 감정이 교차하는 지점에 깊은 관심을 가지고 있습니다. 저의 디자인 철학은 미적으로 아름다울 뿐만 아니라 직관적으로 기능하는 경험을 창조하는 데 중점을 둡니다.
+                시각 및 미디어 디자이너로서 저는 디지털 환경과 인간의 감정이 교차하는 지점에 깊은 관심을 가지고 있습니다. 저의 디자인 철학은 미적으로 아름다울 뿐만 아니라, 단순한 결과물이나 수익 이상의 가치를 담아 우리 공동체가 더 나은 방향으로 연결되는 직관적인 경험을 창조하는 데 중점을 둡니다.
               </p>
               <p>
-                현재 숙명여자대학교에 재학 중이며, 그래픽 디자인, UI/UX, 영상 제작 등 다양한 매체를 통해 기술을 연마해 왔습니다. 저는 좋은 디자인이 복잡한 아이디어를 단순하고 매력적인 방식으로 전달할 수 있는 강력한 커뮤니케이션 도구라고 믿습니다.
+                현재 숙명여자대학교 시각영상디자인과 3학년 재학 중이며, 그래픽 디자인, UI/UX, 영상 제작 등 다양한 매체를 통해 디자인합니다. 저는 좋은 디자인이 복잡한 아이디어를 단순하고 매력적인 방식으로 전달하며, 우리가 살아가는 세상을 더 가치 있고 살기 좋은 곳으로 만드는 강력한 커뮤니케이션 도구라고 믿습니다.
               </p>
               <p>
-                As a visual and media designer, I am deeply interested in the intersection of digital environments and human emotion. My design philosophy centers around creating experiences that are not only aesthetically pleasing but also intuitively functional.
+                As a visual and media designer, I am deeply interested in the intersection of digital environments and human emotion. My design philosophy focuses on creating intuitive experiences that are not only aesthetically pleasing, but also carry value beyond simple outcomes or profits, connecting our community in a better direction.
               </p>
               <p>
-                Currently studying at Sookmyung Women's University, I have been honing my skills across various mediums including graphic design, UI/UX, and video production. I believe that good design is a powerful tool for communication, capable of conveying complex ideas in simple, engaging ways.
+                Currently in my junior year studying Visual & Media Design at Sookmyung Women's University, I design across various mediums including graphic design, UI/UX, and video production. I believe that good design is a powerful communication tool that conveys complex ideas in a simple, engaging way, and makes the world we live in a more valuable and livable place.
               </p>
               <div className="pt-8 border-t border-gray-100 mt-8">
                 <h3 className="text-lg font-medium text-black mb-5 tracking-tight">Core Competencies</h3>
