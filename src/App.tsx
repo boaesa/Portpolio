@@ -75,7 +75,7 @@ export default function App() {
                   <span className="bg-[#141414] text-white px-1.5 py-0.5">Media Design</span>
                 </div>
               </div>
-              <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative">
+              <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative rounded-[15px]">
                  <video src="https://raw.githubusercontent.com/boaesa/Portpolio/f1abc2623092a0fc2d090b5755984b0cc6618ca5/Runway_ocean.mp4" autoPlay loop muted playsInline className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" />
               </div>
               <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
@@ -95,7 +95,7 @@ export default function App() {
                   <span className="bg-[#141414] text-white px-1.5 py-0.5">Editorial Design</span>
                 </div>
               </div>
-              <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative">
+              <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative rounded-[15px]">
                  <img src="https://raw.githubusercontent.com/boaesa/Portpolio/e23eabf7519e8d34e0a79b32e11ac0a4102dbc18/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%85%E1%85%A2%E1%86%A8.jpg" alt="Poster Annual Event Calendar" className="object-cover object-[center_20%] w-full h-full scale-[2] group-hover:scale-[2.05] transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
               </div>
               <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
@@ -115,7 +115,7 @@ export default function App() {
                   <span className="bg-[#141414] text-white px-1.5 py-0.5">Advertising Design</span>
                 </div>
               </div>
-              <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative">
+              <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative rounded-[15px]">
                  <img src="https://raw.githubusercontent.com/boaesa/Portpolio/d3cad62991b66bddaea28b8ca7b431433e5bb045/%5B%EC%88%99%EA%B4%91%EC%88%99%EB%A7%8C%20%EC%8B%9C%EC%A6%8C11-%EA%B4%91%EA%B3%A0%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-1%EB%B2%88%5D%20%EC%9D%B4%EB%B3%B4%EC%95%84_%EC%8B%9C%EA%B0%81%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8%EA%B3%BC_2415462.png" alt="Poster Nonstop" className="object-cover object-[center_35%] w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
               </div>
               <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
@@ -222,17 +222,18 @@ export default function App() {
       {isPopupOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-black/20 backdrop-blur-sm transition-opacity" onClick={() => setIsPopupOpen(false)}>
           <div 
-            className="bg-white w-full max-w-3xl p-8 md:p-12 shadow-2xl relative overflow-y-auto max-h-[90vh] animate-in fade-in zoom-in-95 duration-200"
+            className="bg-white w-full max-w-3xl shadow-2xl relative animate-in fade-in zoom-in-95 duration-200 rounded-[15px] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <button 
-              className="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors"
-              onClick={() => setIsPopupOpen(false)}
-            >
-              <X size={24} />
-            </button>
-            <h2 className="text-3xl font-medium mb-6 tracking-tight">About Lee Boa</h2>
-            <div className="space-y-6 text-gray-600 leading-relaxed text-[15px]">
+            <div className="p-8 md:p-12 overflow-y-auto max-h-[90vh]">
+              <button 
+                className="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors z-10"
+                onClick={() => setIsPopupOpen(false)}
+              >
+                <X size={24} />
+              </button>
+              <h2 className="text-3xl font-medium mb-6 tracking-tight">About Lee Boa</h2>
+              <div className="space-y-6 text-gray-600 leading-relaxed text-[15px]">
               <p>
                 시각 및 미디어 디자이너로서 저는 디지털 환경과 인간의 감정이 교차하는 지점에 깊은 관심을 가지고 있습니다. 저의 디자인 철학은 미적으로 아름다울 뿐만 아니라, 단순한 결과물이나 수익 이상의 가치를 담아 우리 공동체가 더 나은 방향으로 연결되는 직관적인 경험을 창조하는 데 중점을 둡니다.
               </p>
@@ -255,22 +256,24 @@ export default function App() {
             </div>
           </div>
         </div>
+      </div>
       )}
       {/* Work Popup Modal */}
       {selectedWork && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-black/20 backdrop-blur-sm transition-opacity" onClick={() => setSelectedWork(null)}>
           <div 
-            className="bg-white w-full max-w-4xl p-8 md:p-12 shadow-2xl relative overflow-y-auto max-h-[90vh] animate-in fade-in zoom-in-95 duration-200"
+            className="bg-white w-full max-w-4xl shadow-2xl relative animate-in fade-in zoom-in-95 duration-200 rounded-[15px] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <button 
-              className="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors z-10"
-              onClick={() => setSelectedWork(null)}
-            >
-              <X size={24} />
-            </button>
-            
-            {selectedWork === 'summerbeach' && (
+            <div className="p-8 md:p-12 overflow-y-auto max-h-[90vh]">
+              <button 
+                className="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors z-10"
+                onClick={() => setSelectedWork(null)}
+              >
+                <X size={24} />
+              </button>
+              
+              {selectedWork === 'summerbeach' && (
               <div className="flex flex-col gap-8">
                 <div className="aspect-[16/9] bg-gray-100 overflow-hidden relative w-full">
                    <video src="https://raw.githubusercontent.com/boaesa/Portpolio/f1abc2623092a0fc2d090b5755984b0cc6618ca5/Runway_ocean.mp4" autoPlay loop muted playsInline controls className="object-cover w-full h-full" />
@@ -344,6 +347,7 @@ export default function App() {
                 </div>
               </div>
             )}
+            </div>
           </div>
         </div>
       )}
