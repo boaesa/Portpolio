@@ -81,6 +81,26 @@ export default function App() {
               </div>
             </div>
 
+            {/* Work: Calendar */}
+            <div className="group cursor-pointer" onClick={() => setSelectedWork('calendar')}>
+              <div className="flex justify-between items-end mb-4">
+                <h3 className="text-xl font-medium group-hover:text-gray-600 transition-colors">Poster: Annual Event Calendar</h3>
+                <div className="flex gap-[2px] text-[11px] font-medium tracking-wider">
+                  <span className="bg-[#141414] text-white px-1.5 py-0.5">2025</span>
+                  <span className="bg-[#141414] text-white px-1.5 py-0.5">Editorial Design</span>
+                </div>
+              </div>
+              <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative">
+                 <img src="https://raw.githubusercontent.com/boaesa/Portpolio/e23eabf7519e8d34e0a79b32e11ac0a4102dbc18/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%85%E1%85%A2%E1%86%A8.jpg" alt="Poster Annual Event Calendar" className="object-cover object-[center_20%] w-full h-full scale-[2] group-hover:scale-[2.05] transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
+              </div>
+              <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
+                2025년 월간 주요 일정을 한눈에 파악할 수 있도록 설계한 캘린더 정보 디자인 프로젝트입니다.
+              </p>
+              <div className="mt-4 flex items-center gap-2 text-[14px] text-gray-400 group-hover:text-[#141414] transition-colors">
+                View Project <ArrowRight size={14} />
+              </div>
+            </div>
+
             {/* Work 2 */}
             <div className="group cursor-pointer" onClick={() => setSelectedWork('nonstop')}>
               <div className="flex justify-between items-end mb-4">
@@ -132,9 +152,9 @@ export default function App() {
                   <li>Adobe Illustrator</li>
                   <li>Adobe Photoshop</li>
                   <li>Adobe InDesign</li>
+                  <li>Adobe Premiere Pro</li>
                   <li>Adobe After Effects</li>
                   <li>Figma</li>
-                  <li>Premiere Pro</li>
                 </ul>
               </div>
 
@@ -213,6 +233,12 @@ export default function App() {
             <h2 className="text-3xl font-medium mb-6 tracking-tight">About Lee Boa</h2>
             <div className="space-y-6 text-gray-600 leading-relaxed text-[15px]">
               <p>
+                시각 및 미디어 디자이너로서 저는 디지털 환경과 인간의 감정이 교차하는 지점에 깊은 관심을 가지고 있습니다. 저의 디자인 철학은 미적으로 아름다울 뿐만 아니라 직관적으로 기능하는 경험을 창조하는 데 중점을 둡니다.
+              </p>
+              <p>
+                현재 숙명여자대학교에 재학 중이며, 그래픽 디자인, UI/UX, 영상 제작 등 다양한 매체를 통해 기술을 연마해 왔습니다. 저는 좋은 디자인이 복잡한 아이디어를 단순하고 매력적인 방식으로 전달할 수 있는 강력한 커뮤니케이션 도구라고 믿습니다.
+              </p>
+              <p>
                 As a visual and media designer, I am deeply interested in the intersection of digital environments and human emotion. My design philosophy centers around creating experiences that are not only aesthetically pleasing but also intuitively functional.
               </p>
               <p>
@@ -221,10 +247,8 @@ export default function App() {
               <div className="pt-8 border-t border-gray-100 mt-8">
                 <h3 className="text-lg font-medium text-black mb-5 tracking-tight">Core Competencies</h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[14px]">
-                  <li className="flex items-center gap-3"><div className="w-1 h-1 bg-black rounded-full"></div> Brand Identity Design</li>
                   <li className="flex items-center gap-3"><div className="w-1 h-1 bg-black rounded-full"></div> UI/UX & Web Design</li>
                   <li className="flex items-center gap-3"><div className="w-1 h-1 bg-black rounded-full"></div> Media & Video Production</li>
-                  <li className="flex items-center gap-3"><div className="w-1 h-1 bg-black rounded-full"></div> Strategic Planning</li>
                 </ul>
               </div>
             </div>
@@ -266,6 +290,29 @@ export default function App() {
                   </div>
                   <div className="mt-8 pt-6 border-t border-gray-100 text-[13px] text-gray-400">
                     Tools used: Midjourney, Runway AI
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {selectedWork === 'calendar' && (
+              <div className="flex flex-col gap-8">
+                <div className="bg-gray-100 overflow-hidden relative w-full">
+                   <img src="https://raw.githubusercontent.com/boaesa/Portpolio/e23eabf7519e8d34e0a79b32e11ac0a4102dbc18/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%85%E1%85%A2%E1%86%A8.jpg" alt="Poster Annual Event Calendar" className="w-full h-auto" referrerPolicy="no-referrer" />
+                </div>
+                <div>
+                  <div className="flex gap-[2px] text-[11px] font-medium tracking-wider mb-4">
+                    <span className="bg-[#141414] text-white px-1.5 py-0.5">2025</span>
+                    <span className="bg-[#141414] text-white px-1.5 py-0.5">Editorial Design</span>
+                  </div>
+                  <h2 className="text-3xl font-medium mb-6 tracking-tight">Poster: Annual Event Calendar</h2>
+                  <div className="space-y-4 text-gray-600 leading-relaxed text-[15px]">
+                    <p>
+                      2025년 월간 주요 일정을 한눈에 파악할 수 있도록 설계한 캘린더 정보 디자인 프로젝트입니다. 각 부서의 흐름을 수직적인 컬러 라인으로 연결하여 시각적 위계를 정립하고, 방대한 양의 텍스트 데이터를 그리드 시스템 안에 배치했습니다. 사용자가 필요한 일정을 직관적으로 찾아낼 수 있도록 가독성과 기능적 효율성에 집중했습니다.
+                    </p>
+                  </div>
+                  <div className="mt-8 pt-6 border-t border-gray-100 text-[13px] text-gray-400">
+                    Tools used: Adobe Illustrator
                   </div>
                 </div>
               </div>
