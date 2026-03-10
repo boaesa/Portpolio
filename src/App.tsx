@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, X } from 'lucide-react';
+import { ArrowRight, X, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function App() {
   const [time, setTime] = useState('');
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedWork, setSelectedWork] = useState<string | null>(null);
+  const [isFeaturedWorksOpen, setIsFeaturedWorksOpen] = useState(true);
+  const [isUxDesignOpen, setIsUxDesignOpen] = useState(true);
 
   useEffect(() => {
     const updateTime = () => {
@@ -56,11 +58,17 @@ export default function App() {
 
         {/* Works Section */}
         <section id="works" className="py-20 md:py-32 border-t border-gray-200/60 grid grid-cols-1 md:grid-cols-12 gap-8">
-          <div className="md:col-span-4">
-            <h2 className="text-[15px] font-medium mb-1">Featured Works</h2>
-            <p className="text-gray-400 text-[13px]">2024 - 2026</p>
+          <div className="md:col-span-4 flex justify-between items-start cursor-pointer group" onClick={() => setIsFeaturedWorksOpen(!isFeaturedWorksOpen)}>
+            <div>
+              <h2 className="text-[15px] font-medium mb-1 group-hover:text-gray-600 transition-colors">Featured Works</h2>
+              <p className="text-gray-400 text-[13px]">2024 - 2026</p>
+            </div>
+            <button className="text-gray-400 group-hover:text-[#141414] transition-colors">
+              {isFeaturedWorksOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+            </button>
           </div>
-          <div className="md:col-span-8 space-y-24">
+          {isFeaturedWorksOpen && (
+            <div className="md:col-span-8 space-y-24">
             <div className="flex justify-between items-center text-[15px] font-medium border-b border-gray-200/60 pb-4 mb-8">
               <a href="#works" className="flex items-center gap-1 hover:opacity-70 transition-opacity">Check all projects <ArrowRight size={16} /></a>
               <a href="mailto:shebekdq3@sookmyung.ac.kr" className="flex items-center gap-1 hover:opacity-70 transition-opacity">Contact Me <ArrowRight size={16} /></a>
@@ -76,7 +84,7 @@ export default function App() {
                 </div>
               </div>
               <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative rounded-[15px]">
-                 <video src="https://raw.githubusercontent.com/boaesa/Portpolio/f1abc2623092a0fc2d090b5755984b0cc6618ca5/Runway_ocean.mp4" autoPlay loop muted playsInline className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" />
+                 <video src="https://raw.githubusercontent.com/boaesa/Portpolio/f1abc2623092a0fc2d090b5755984b0cc6618ca5/Runway_ocean.mp4" autoPlay loop muted playsInline preload="metadata" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" />
               </div>
               <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
                 3D 캐릭터와 파스텔 톤의 해변 배경을 활용한 앰비언스 영상입니다. 정서적 안정과 휴식을 테마로 하여, 캐릭터의 배치와 환경의 조화를 시각화하는 데 집중했습니다.
@@ -101,6 +109,7 @@ export default function App() {
                    autoPlay 
                    muted 
                    playsInline 
+                   preload="metadata"
                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" 
                    onEnded={(e) => {
                      const video = e.currentTarget;
@@ -112,10 +121,10 @@ export default function App() {
               </div>
               <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative rounded-[15px] flex">
                  <div className="w-1/2 h-full overflow-hidden">
-                   <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/BD_pattern_new.jpg" alt="Pattern Sandam 1" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
+                   <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/BD_pattern_new.jpg" alt="Pattern Sandam 1" loading="lazy" decoding="async" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
                  </div>
                  <div className="w-1/2 h-full overflow-hidden">
-                   <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/%E1%84%87%E1%85%B3%E1%84%83%E1%85%B5%20%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB2_%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%86%A8.png" alt="Pattern Sandam 2" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
+                   <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/%E1%84%87%E1%85%B3%E1%84%83%E1%85%B5%20%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB2_%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%86%A8.png" alt="Pattern Sandam 2" loading="lazy" decoding="async" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
                  </div>
               </div>
               <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
@@ -136,7 +145,7 @@ export default function App() {
                 </div>
               </div>
               <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative rounded-[15px]">
-                 <img src="https://raw.githubusercontent.com/boaesa/Portpolio/e23eabf7519e8d34e0a79b32e11ac0a4102dbc18/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%85%E1%85%A2%E1%86%A8.jpg" alt="Poster Annual Event Calendar" className="object-cover object-[center_20%] w-full h-full scale-[2] group-hover:scale-[2.05] transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
+                 <img src="https://raw.githubusercontent.com/boaesa/Portpolio/e23eabf7519e8d34e0a79b32e11ac0a4102dbc18/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%85%E1%85%A2%E1%86%A8.jpg" alt="Poster Annual Event Calendar" loading="lazy" decoding="async" className="object-cover object-[center_20%] w-full h-full scale-[2] group-hover:scale-[2.05] transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
               </div>
               <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
                 2025년 월간 주요 일정을 한눈에 파악할 수 있도록 설계한 캘린더 정보 디자인 프로젝트입니다.
@@ -156,7 +165,7 @@ export default function App() {
                 </div>
               </div>
               <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative rounded-[15px]">
-                 <img src="https://raw.githubusercontent.com/boaesa/Portpolio/d3cad62991b66bddaea28b8ca7b431433e5bb045/%5B%EC%88%99%EA%B4%91%EC%88%99%EB%A7%8C%20%EC%8B%9C%EC%A6%8C11-%EA%B4%91%EA%B3%A0%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-1%EB%B2%88%5D%20%EC%9D%B4%EB%B3%B4%EC%95%84_%EC%8B%9C%EA%B0%81%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8%EA%B3%BC_2415462.png" alt="Poster Nonstop" className="object-cover object-[center_35%] w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
+                 <img src="https://raw.githubusercontent.com/boaesa/Portpolio/d3cad62991b66bddaea28b8ca7b431433e5bb045/%5B%EC%88%99%EA%B4%91%EC%88%99%EB%A7%8C%20%EC%8B%9C%EC%A6%8C11-%EA%B4%91%EA%B3%A0%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-1%EB%B2%88%5D%20%EC%9D%B4%EB%B3%B4%EC%95%84_%EC%8B%9C%EA%B0%81%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8%EA%B3%BC_2415462.png" alt="Poster Nonstop" loading="lazy" decoding="async" className="object-cover object-[center_35%] w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
               </div>
               <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
                 숙광숙만 최우수상 포스터입니다. '멈추지 않을 숙명'이라는 슬로건을 중심으로, 숙명여대 홍보 문구를 제안했습니다.
@@ -166,6 +175,27 @@ export default function App() {
               </div>
             </div>
           </div>
+          )}
+        </section>
+
+        {/* User Experience Design I Section */}
+        <section id="ux-design-1" className="py-20 md:py-32 border-t border-gray-200/60 grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div className="md:col-span-4 flex justify-between items-start cursor-pointer group" onClick={() => setIsUxDesignOpen(!isUxDesignOpen)}>
+            <div>
+              <h2 className="text-[15px] font-medium mb-1 group-hover:text-gray-600 transition-colors">User Experience Design I</h2>
+              <p className="text-gray-400 text-[13px]">2026</p>
+            </div>
+            <button className="text-gray-400 group-hover:text-[#141414] transition-colors">
+              {isUxDesignOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+            </button>
+          </div>
+          {isUxDesignOpen && (
+            <div className="md:col-span-8 space-y-24">
+              <div className="text-gray-400 text-[14px] italic">
+                프로젝트가 곧 업데이트될 예정입니다.
+              </div>
+            </div>
+          )}
         </section>
 
         {/* Profile Section */}
@@ -316,7 +346,7 @@ export default function App() {
               {selectedWork === 'summerbeach' && (
               <div className="flex flex-col gap-8">
                 <div className="aspect-[16/9] bg-gray-100 overflow-hidden relative w-full">
-                   <video src="https://raw.githubusercontent.com/boaesa/Portpolio/f1abc2623092a0fc2d090b5755984b0cc6618ca5/Runway_ocean.mp4" autoPlay loop muted playsInline controls className="object-cover w-full h-full" />
+                   <video src="https://raw.githubusercontent.com/boaesa/Portpolio/f1abc2623092a0fc2d090b5755984b0cc6618ca5/Runway_ocean.mp4" autoPlay loop muted playsInline preload="metadata" controls className="object-cover w-full h-full" />
                 </div>
                 <div>
                   <div className="flex gap-[2px] text-[11px] font-medium tracking-wider mb-4">
@@ -347,6 +377,7 @@ export default function App() {
                      autoPlay 
                      muted 
                      playsInline 
+                     preload="metadata"
                      controls 
                      className="object-cover w-full h-full" 
                      onEnded={(e) => {
@@ -359,10 +390,10 @@ export default function App() {
                 </div>
                 <div className="flex gap-4 w-full">
                   <div className="w-1/2 aspect-[16/10] bg-gray-100 overflow-hidden relative">
-                    <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/BD_pattern_new.jpg" alt="Pattern Sandam 1" className="object-cover w-full h-full" referrerPolicy="no-referrer" />
+                    <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/BD_pattern_new.jpg" alt="Pattern Sandam 1" loading="lazy" decoding="async" className="object-cover w-full h-full" referrerPolicy="no-referrer" />
                   </div>
                   <div className="w-1/2 aspect-[16/10] bg-gray-100 overflow-hidden relative">
-                    <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/%E1%84%87%E1%85%B3%E1%84%83%E1%85%B5%20%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB2_%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%86%A8.png" alt="Pattern Sandam 2" className="object-cover w-full h-full" referrerPolicy="no-referrer" />
+                    <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/%E1%84%87%E1%85%B3%E1%84%83%E1%85%B5%20%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB2_%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%86%A8.png" alt="Pattern Sandam 2" loading="lazy" decoding="async" className="object-cover w-full h-full" referrerPolicy="no-referrer" />
                   </div>
                 </div>
                 <div>
@@ -386,7 +417,7 @@ export default function App() {
             {selectedWork === 'calendar' && (
               <div className="flex flex-col gap-8">
                 <div className="bg-gray-100 overflow-hidden relative w-full">
-                   <img src="https://raw.githubusercontent.com/boaesa/Portpolio/e23eabf7519e8d34e0a79b32e11ac0a4102dbc18/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%85%E1%85%A2%E1%86%A8.jpg" alt="Poster Annual Event Calendar" className="w-full h-auto" referrerPolicy="no-referrer" />
+                   <img src="https://raw.githubusercontent.com/boaesa/Portpolio/e23eabf7519e8d34e0a79b32e11ac0a4102dbc18/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%85%E1%85%A2%E1%86%A8.jpg" alt="Poster Annual Event Calendar" loading="lazy" decoding="async" className="w-full h-auto" referrerPolicy="no-referrer" />
                 </div>
                 <div>
                   <div className="flex gap-[2px] text-[11px] font-medium tracking-wider mb-4">
@@ -409,7 +440,7 @@ export default function App() {
             {selectedWork === 'nonstop' && (
               <div className="flex flex-col gap-8">
                 <div className="bg-gray-100 overflow-hidden relative w-full">
-                   <img src="https://raw.githubusercontent.com/boaesa/Portpolio/f1abc2623092a0fc2d090b5755984b0cc6618ca5/%5B%EC%88%99%EA%B4%91%EC%88%99%EB%A7%8C%20%EC%8B%9C%EC%A6%8C11-%EA%B4%91%EA%B3%A0%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-1%EB%B2%88%5D%20%EC%9D%B4%EB%B3%B4%EC%95%84_%EC%8B%9C%EA%B0%81%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8%EA%B3%BC_2415462.png" alt="Poster Nonstop" className="w-full h-auto" referrerPolicy="no-referrer" />
+                   <img src="https://raw.githubusercontent.com/boaesa/Portpolio/f1abc2623092a0fc2d090b5755984b0cc6618ca5/%5B%EC%88%99%EA%B4%91%EC%88%99%EB%A7%8C%20%EC%8B%9C%EC%A6%8C11-%EA%B4%91%EA%B3%A0%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-1%EB%B2%88%5D%20%EC%9D%B4%EB%B3%B4%EC%95%84_%EC%8B%9C%EA%B0%81%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8%EA%B3%BC_2415462.png" alt="Poster Nonstop" loading="lazy" decoding="async" className="w-full h-auto" referrerPolicy="no-referrer" />
                 </div>
                 <div>
                   <div className="flex gap-[2px] text-[11px] font-medium tracking-wider mb-4">
