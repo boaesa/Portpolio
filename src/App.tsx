@@ -25,9 +25,10 @@ export default function App() {
         <div className="text-4xl font-bold tracking-tighter">LEE BOA<sup className="text-lg">®</sup></div>
         <div className="hidden md:flex flex-col text-[13px] text-gray-500 space-y-1">
           <a href="#works" className="hover:text-black transition-colors w-fit">Works</a>
-          <a href="#profile" className="hover:text-black transition-colors w-fit">Profile</a>
+          <a href="#ux-design-1" className="hover:text-black transition-colors w-fit">UX I</a>
         </div>
         <div className="hidden md:flex flex-col text-[13px] text-gray-500 space-y-1">
+          <a href="#profile" className="hover:text-black transition-colors w-fit">Profile</a>
           <a href="mailto:shebekdq3@sookmyung.ac.kr" className="hover:text-black transition-colors w-fit">Contact</a>
         </div>
         <div className="flex flex-col text-[13px] text-gray-500 text-right md:text-left space-y-1">
@@ -45,7 +46,7 @@ export default function App() {
               className="text-[12vw] font-bold leading-none tracking-tighter cursor-pointer group relative py-4"
               onClick={() => setIsPopupOpen(true)}
             >
-              <span className="relative z-10 inline-block px-2 bg-clip-text text-transparent bg-black group-hover:bg-gradient-to-r group-hover:from-purple-500 group-hover:via-pink-500 group-hover:to-orange-500 group-hover:scale-105 transition-all duration-500 ease-in-out">LEE BOA</span>
+              <span className="relative z-10 inline-block px-2 bg-clip-text text-transparent bg-[linear-gradient(to_right,#10b981,#0ea5e9,#3b82f6,#6366f1,#8b5cf6)] group-hover:scale-105 transition-all duration-500 ease-in-out">LEE BOA</span>
             </div>
             <div 
               className="mt-12 flex items-center gap-2 text-[15px] text-gray-400 hover:text-[#141414] transition-colors font-normal tracking-normal cursor-pointer"
@@ -54,6 +55,26 @@ export default function App() {
               Read more about me <ArrowRight size={16} />
             </div>
           </div>
+        </section>
+
+        {/* User Experience Design I Section */}
+        <section id="ux-design-1" className="py-20 md:py-32 border-t border-gray-200/60 grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div className="md:col-span-4 flex justify-between items-start cursor-pointer group" onClick={() => setIsUxDesignOpen(!isUxDesignOpen)}>
+            <div>
+              <h2 className="text-[15px] font-medium mb-1 group-hover:text-gray-600 transition-colors">User Experience Design I</h2>
+              <p className="text-gray-400 text-[13px]">2026</p>
+            </div>
+            <button className="text-gray-400 group-hover:text-[#141414] transition-colors">
+              {isUxDesignOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+            </button>
+          </div>
+          {isUxDesignOpen && (
+            <div className="md:col-span-8 space-y-24">
+              <div className="text-gray-400 text-[14px] italic">
+                프로젝트가 곧 업데이트될 예정입니다.
+              </div>
+            </div>
+          )}
         </section>
 
         {/* Works Section */}
@@ -178,26 +199,6 @@ export default function App() {
           )}
         </section>
 
-        {/* User Experience Design I Section */}
-        <section id="ux-design-1" className="py-20 md:py-32 border-t border-gray-200/60 grid grid-cols-1 md:grid-cols-12 gap-8">
-          <div className="md:col-span-4 flex justify-between items-start cursor-pointer group" onClick={() => setIsUxDesignOpen(!isUxDesignOpen)}>
-            <div>
-              <h2 className="text-[15px] font-medium mb-1 group-hover:text-gray-600 transition-colors">User Experience Design I</h2>
-              <p className="text-gray-400 text-[13px]">2026</p>
-            </div>
-            <button className="text-gray-400 group-hover:text-[#141414] transition-colors">
-              {isUxDesignOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-            </button>
-          </div>
-          {isUxDesignOpen && (
-            <div className="md:col-span-8 space-y-24">
-              <div className="text-gray-400 text-[14px] italic">
-                프로젝트가 곧 업데이트될 예정입니다.
-              </div>
-            </div>
-          )}
-        </section>
-
         {/* Profile Section */}
         <section id="profile" className="py-20 md:py-32 border-t border-gray-200/60 grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-4">
@@ -281,10 +282,16 @@ export default function App() {
         </div>
         
         {/* Massive Typography */}
-        <div className="w-full flex justify-center items-center mt-10">
+        <div className="w-full flex flex-col justify-center items-center mt-10">
           <h1 className="text-[18vw] font-bold tracking-tighter leading-none text-[#141414] select-none whitespace-nowrap">
             Portpolio
           </h1>
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="mt-[80px] text-gray-400 hover:text-[#141414] transition-colors text-sm font-medium"
+          >
+            Back to the top
+          </button>
         </div>
       </footer>
 
