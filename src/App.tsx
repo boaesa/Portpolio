@@ -86,6 +86,46 @@ export default function App() {
               </div>
             </div>
 
+            {/* Work: Sandam */}
+            <div className="group cursor-pointer" onClick={() => setSelectedWork('sandam')}>
+              <div className="flex justify-between items-end mb-4">
+                <h3 className="text-xl font-medium group-hover:text-gray-600 transition-colors">Project: Sandam</h3>
+                <div className="flex gap-[2px] text-[11px] font-medium tracking-wider">
+                  <span className="bg-[#141414] text-white px-1.5 py-0.5">2025</span>
+                  <span className="bg-[#141414] text-white px-1.5 py-0.5">Branding Design</span>
+                </div>
+              </div>
+              <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-4 relative rounded-[15px]">
+                 <video 
+                   src="https://raw.githubusercontent.com/boaesa/Portpolio/9bcfbecb226a711ffa33a995c19021303f384fd1/Sequence%2001_1.mp4" 
+                   autoPlay 
+                   muted 
+                   playsInline 
+                   className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" 
+                   onEnded={(e) => {
+                     const video = e.currentTarget;
+                     setTimeout(() => {
+                       video.play().catch(err => console.error("Video play failed:", err));
+                     }, 2500);
+                   }}
+                 />
+              </div>
+              <div className="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative rounded-[15px] flex">
+                 <div className="w-1/2 h-full overflow-hidden">
+                   <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/BD_pattern_new.jpg" alt="Pattern Sandam 1" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
+                 </div>
+                 <div className="w-1/2 h-full overflow-hidden">
+                   <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/%E1%84%87%E1%85%B3%E1%84%83%E1%85%B5%20%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB2_%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%86%A8.png" alt="Pattern Sandam 2" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer" />
+                 </div>
+              </div>
+              <p className="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
+                '산이 들려주는 이야기'라는 의미를 담아, 도심 속 현대인에게 산림 보전의 가치와 생태계의 생명력을 전하는 캠페인 브랜딩 프로젝트입니다. 청록과 연두의 컬러 시스템을 통해 자연 본연의 생동감과 인간과의 조화로운 공존을 감각적으로 시각화했습니다.
+              </p>
+              <div className="mt-4 flex items-center gap-2 text-[14px] text-gray-400 group-hover:text-[#141414] transition-colors">
+                View Project <ArrowRight size={14} />
+              </div>
+            </div>
+
             {/* Work: Calendar */}
             <div className="group cursor-pointer" onClick={() => setSelectedWork('calendar')}>
               <div className="flex justify-between items-end mb-4">
@@ -294,6 +334,50 @@ export default function App() {
                   </div>
                   <div className="mt-8 pt-6 border-t border-gray-100 text-[13px] text-gray-400">
                     Tools used: Midjourney, Runway AI
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {selectedWork === 'sandam' && (
+              <div className="flex flex-col gap-8">
+                <div className="aspect-[16/9] bg-gray-100 overflow-hidden relative w-full">
+                   <video 
+                     src="https://raw.githubusercontent.com/boaesa/Portpolio/9bcfbecb226a711ffa33a995c19021303f384fd1/Sequence%2001_1.mp4" 
+                     autoPlay 
+                     muted 
+                     playsInline 
+                     controls 
+                     className="object-cover w-full h-full" 
+                     onEnded={(e) => {
+                       const video = e.currentTarget;
+                       setTimeout(() => {
+                         video.play().catch(err => console.error("Video play failed:", err));
+                       }, 2500);
+                     }}
+                   />
+                </div>
+                <div className="flex gap-4 w-full">
+                  <div className="w-1/2 aspect-[16/10] bg-gray-100 overflow-hidden relative">
+                    <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/BD_pattern_new.jpg" alt="Pattern Sandam 1" className="object-cover w-full h-full" referrerPolicy="no-referrer" />
+                  </div>
+                  <div className="w-1/2 aspect-[16/10] bg-gray-100 overflow-hidden relative">
+                    <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/%E1%84%87%E1%85%B3%E1%84%83%E1%85%B5%20%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB2_%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%86%A8.png" alt="Pattern Sandam 2" className="object-cover w-full h-full" referrerPolicy="no-referrer" />
+                  </div>
+                </div>
+                <div>
+                  <div className="flex gap-[2px] text-[11px] font-medium tracking-wider mb-4">
+                    <span className="bg-[#141414] text-white px-1.5 py-0.5">2025</span>
+                    <span className="bg-[#141414] text-white px-1.5 py-0.5">Branding Design</span>
+                  </div>
+                  <h2 className="text-3xl font-medium mb-6 tracking-tight">Project: Sandam</h2>
+                  <div className="space-y-4 text-gray-600 leading-relaxed text-[15px]">
+                    <p>
+                      산담은 '산이 들려주는 이야기'를 통해 잊혀가는 산림의 중요성과 자연의 가치를 재조명하는 캠페인 브랜드입니다. 산(山)의 상징성을 현대적으로 재해석한 로고와 기하학적 패턴을 기반으로 자연의 생동감 넘치는 에너지를 시각적 언어로 풀어냈습니다. 멸종위기종 보호 포스터와 생태 교육 콘텐츠, 제로 웨이스트를 지향하는 친환경 굿즈 및 모바일 앱까지 온·오프라인을 아우르는 통합적인 브랜드 경험을 설계했습니다. 부드러운 곡선과 여백 중심의 디자인을 활용하여 인간과 자연이 조화롭게 연결되는 '공존'의 정체성을 일관되게 전달하고자 했습니다.
+                    </p>
+                  </div>
+                  <div className="mt-8 pt-6 border-t border-gray-100 text-[13px] text-gray-400">
+                    Tools used: Adobe Illustrator, Adobe After Effect
                   </div>
                 </div>
               </div>
