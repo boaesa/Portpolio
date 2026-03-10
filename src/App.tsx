@@ -223,7 +223,7 @@ export default function App() {
                     공간의 변화를 경험하는 것을 즐깁니다.
                   </li>
                   <li>
-                    <strong className="font-medium text-[#141414] block mb-1">지리학 및 조경</strong>
+                    <strong className="font-medium text-[#141414] block mb-1">지리학, 지정학 및 조경</strong>
                     지형의 형태와 배치가 주는 힘에 관심이 많습니다.
                   </li>
                 </ul>
