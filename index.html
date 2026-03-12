@@ -1,13 +1,575 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEE BOA - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FDFDFD;
+      color: #141414;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    ::selection {
+      background-color: #141414;
+      color: white;
+    }
 
+    /* Modal animations */
+    .modal-enter {
+      opacity: 0;
+    }
+    .modal-enter-active {
+      opacity: 1;
+      transition: opacity 200ms ease-in;
+    }
+    .modal-exit {
+      opacity: 1;
+    }
+    .modal-exit-active {
+      opacity: 0;
+      transition: opacity 200ms ease-out;
+    }
+    
+    .modal-content-enter {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    .modal-content-enter-active {
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 200ms ease-in, transform 200ms ease-in;
+    }
+
+    /* SVG Icons */
+    .icon {
+      width: 1em;
+      height: 1em;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+    
+    /* Hide scrollbar for modal */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen selection:bg-[#141414] selection:text-white">
+
+  <!-- Header -->
+  <header class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 md:p-10 border-b border-gray-200/60 items-start">
+    <div class="text-4xl font-bold tracking-tighter">LEE BOA<sup class="text-lg">®</sup></div>
+    <div class="hidden md:flex flex-col text-[13px] text-gray-500 space-y-1">
+      <a href="#works" class="hover:text-black transition-colors w-fit">Works</a>
+      <a href="#ux-design-1" class="hover:text-black transition-colors w-fit">UX I</a>
+    </div>
+    <div class="hidden md:flex flex-col text-[13px] text-gray-500 space-y-1">
+      <a href="#profile" class="hover:text-black transition-colors w-fit">Profile</a>
+      <a href="mailto:shebekdq3@sookmyung.ac.kr" class="hover:text-black transition-colors w-fit">Contact</a>
+    </div>
+    <div class="flex flex-col text-[13px] text-gray-500 text-right md:text-left space-y-1">
+      <span>Seoul, South Korea</span>
+      <span id="current-time"></span>
+    </div>
+  </header>
+
+  <main class="px-6 md:px-10">
+    <!-- Hero / Intro -->
+    <section class="py-20 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-8">
+      <div class="md:col-span-12 flex flex-col items-center justify-center text-center">
+        <p class="text-[15px] font-medium tracking-wide text-gray-500 mb-4">단순한 기능보다 넓은 연결을 바라봅니다</p>
+        <div class="text-[12vw] font-bold leading-none tracking-tighter cursor-pointer group relative py-4" onclick="openModal('about-modal')">
+          <span class="relative z-10 inline-block px-2 bg-clip-text text-transparent bg-[linear-gradient(to_right,#10b981,#0ea5e9,#3b82f6,#6366f1,#8b5cf6)] group-hover:scale-105 transition-all duration-500 ease-in-out">LEE BOA</span>
+        </div>
+        <div class="mt-12 flex items-center gap-2 text-[15px] text-gray-400 hover:text-[#141414] transition-colors font-normal tracking-normal cursor-pointer" onclick="openModal('about-modal')">
+          Read more about me 
+          <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Experience Design I Section -->
+    <section id="ux-design-1" class="py-20 md:py-32 border-t border-gray-200/60 grid grid-cols-1 md:grid-cols-12 gap-8">
+      <div class="md:col-span-4 flex justify-between items-start cursor-pointer group" onclick="toggleSection('ux-content', 'ux-icon')">
+        <div>
+          <h2 class="text-[15px] font-medium mb-1 group-hover:text-gray-600 transition-colors">User Experience Design I</h2>
+          <p class="text-gray-400 text-[13px]">2026</p>
+        </div>
+        <button class="text-gray-400 group-hover:text-[#141414] transition-colors" id="ux-icon">
+          <svg class="icon w-5 h-5" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg>
+        </button>
+      </div>
+      <div id="ux-content" class="md:col-span-8 space-y-24 block">
+        <div class="text-gray-400 text-[14px] italic">
+          프로젝트가 곧 업데이트될 예정입니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works" class="py-20 md:py-32 border-t border-gray-200/60 grid grid-cols-1 md:grid-cols-12 gap-8">
+      <div class="md:col-span-4 flex justify-between items-start cursor-pointer group" onclick="toggleSection('works-content', 'works-icon')">
+        <div>
+          <h2 class="text-[15px] font-medium mb-1 group-hover:text-gray-600 transition-colors">Featured Works</h2>
+          <p class="text-gray-400 text-[13px]">2024 - 2026</p>
+        </div>
+        <button class="text-gray-400 group-hover:text-[#141414] transition-colors" id="works-icon">
+          <svg class="icon w-5 h-5" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg>
+        </button>
+      </div>
+      
+      <div id="works-content" class="md:col-span-8 space-y-24 block">
+        <div class="flex justify-between items-center text-[15px] font-medium border-b border-gray-200/60 pb-4 mb-8">
+          <a href="#works" class="flex items-center gap-1 hover:opacity-70 transition-opacity">Check all projects <svg class="icon w-4 h-4" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="mailto:shebekdq3@sookmyung.ac.kr" class="flex items-center gap-1 hover:opacity-70 transition-opacity">Contact Me <svg class="icon w-4 h-4" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <!-- Work 1 -->
+        <div class="group cursor-pointer" onclick="openWorkModal('summerbeach')">
+          <div class="flex justify-between items-end mb-4">
+            <h3 class="text-xl font-medium group-hover:text-gray-600 transition-colors">Ambience Video: Summer Beach</h3>
+            <div class="flex gap-[2px] text-[11px] font-medium tracking-wider">
+              <span class="bg-[#141414] text-white px-1.5 py-0.5">2025</span>
+              <span class="bg-[#141414] text-white px-1.5 py-0.5">Media Design</span>
+            </div>
+          </div>
+          <div class="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative rounded-[15px]">
+             <video src="https://raw.githubusercontent.com/boaesa/Portpolio/f1abc2623092a0fc2d090b5755984b0cc6618ca5/Runway_ocean.mp4" autoplay loop muted playsinline preload="metadata" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out"></video>
+          </div>
+          <p class="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
+            3D 캐릭터와 파스텔 톤의 해변 배경을 활용한 앰비언스 영상입니다. 정서적 안정과 휴식을 테마로 하여, 캐릭터의 배치와 환경의 조화를 시각화하는 데 집중했습니다.
+          </p>
+          <div class="mt-4 flex items-center gap-2 text-[14px] text-gray-400 group-hover:text-[#141414] transition-colors">
+            View Project <svg class="icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <!-- Work: Sandam -->
+        <div class="group cursor-pointer" onclick="openWorkModal('sandam')">
+          <div class="flex justify-between items-end mb-4">
+            <h3 class="text-xl font-medium group-hover:text-gray-600 transition-colors">Project: Sandam</h3>
+            <div class="flex gap-[2px] text-[11px] font-medium tracking-wider">
+              <span class="bg-[#141414] text-white px-1.5 py-0.5">2025</span>
+              <span class="bg-[#141414] text-white px-1.5 py-0.5">Branding Design</span>
+            </div>
+          </div>
+          <div class="aspect-[16/10] bg-gray-100 overflow-hidden mb-4 relative rounded-[15px]">
+             <video 
+               src="https://raw.githubusercontent.com/boaesa/Portpolio/9bcfbecb226a711ffa33a995c19021303f384fd1/Sequence%2001_1.mp4" 
+               autoplay 
+               muted 
+               playsinline 
+               preload="metadata"
+               class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" 
+               onended="setTimeout(() => { this.play().catch(e => console.error(e)) }, 2500)"
+             ></video>
+          </div>
+          <div class="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative rounded-[15px] flex">
+             <div class="w-1/2 h-full overflow-hidden">
+               <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/BD_pattern_new.jpg" alt="Pattern Sandam 1" loading="lazy" decoding="async" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerpolicy="no-referrer" />
+             </div>
+             <div class="w-1/2 h-full overflow-hidden">
+               <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/%E1%84%87%E1%85%B3%E1%84%83%E1%85%B5%20%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB2_%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%86%A8.png" alt="Pattern Sandam 2" loading="lazy" decoding="async" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerpolicy="no-referrer" />
+             </div>
+          </div>
+          <p class="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
+            '산이 들려주는 이야기'라는 의미를 담아, 도심 속 현대인에게 산림 보전의 가치와 생태계의 생명력을 전하는 캠페인 브랜딩 프로젝트입니다. 청록과 연두의 컬러 시스템을 통해 자연 본연의 생동감과 인간과의 조화로운 공존을 감각적으로 시각화했습니다.
+          </p>
+          <div class="mt-4 flex items-center gap-2 text-[14px] text-gray-400 group-hover:text-[#141414] transition-colors">
+            View Project <svg class="icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <!-- Work: Calendar -->
+        <div class="group cursor-pointer" onclick="openWorkModal('calendar')">
+          <div class="flex justify-between items-end mb-4">
+            <h3 class="text-xl font-medium group-hover:text-gray-600 transition-colors">Poster: Annual Event Calendar</h3>
+            <div class="flex gap-[2px] text-[11px] font-medium tracking-wider">
+              <span class="bg-[#141414] text-white px-1.5 py-0.5">2025</span>
+              <span class="bg-[#141414] text-white px-1.5 py-0.5">Editorial Design</span>
+            </div>
+          </div>
+          <div class="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative rounded-[15px]">
+             <img src="https://raw.githubusercontent.com/boaesa/Portpolio/e23eabf7519e8d34e0a79b32e11ac0a4102dbc18/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%85%E1%85%A2%E1%86%A8.jpg" alt="Poster Annual Event Calendar" loading="lazy" decoding="async" class="object-cover object-[center_20%] w-full h-full scale-[2] group-hover:scale-[2.05] transition-transform duration-700 ease-in-out" referrerpolicy="no-referrer" />
+          </div>
+          <p class="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
+            2025년 월간 주요 일정을 한눈에 파악할 수 있도록 설계한 캘린더 정보 디자인 프로젝트입니다.
+          </p>
+          <div class="mt-4 flex items-center gap-2 text-[14px] text-gray-400 group-hover:text-[#141414] transition-colors">
+            View Project <svg class="icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <!-- Work 2 -->
+        <div class="group cursor-pointer" onclick="openWorkModal('nonstop')">
+          <div class="flex justify-between items-end mb-4">
+            <h3 class="text-xl font-medium group-hover:text-gray-600 transition-colors">Poster: Nonstop</h3>
+            <div class="flex gap-[2px] text-[11px] font-medium tracking-wider">
+              <span class="bg-[#141414] text-white px-1.5 py-0.5">2025</span>
+              <span class="bg-[#141414] text-white px-1.5 py-0.5">Advertising Design</span>
+            </div>
+          </div>
+          <div class="aspect-[16/10] bg-gray-100 overflow-hidden mb-6 relative rounded-[15px]">
+             <img src="https://raw.githubusercontent.com/boaesa/Portpolio/d3cad62991b66bddaea28b8ca7b431433e5bb045/%5B%EC%88%99%EA%B4%91%EC%88%99%EB%A7%8C%20%EC%8B%9C%EC%A6%8C11-%EA%B4%91%EA%B3%A0%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-1%EB%B2%88%5D%20%EC%9D%B4%EB%B3%B4%EC%95%84_%EC%8B%9C%EA%B0%81%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8%EA%B3%BC_2415462.png" alt="Poster Nonstop" loading="lazy" decoding="async" class="object-cover object-[center_35%] w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out" referrerpolicy="no-referrer" />
+          </div>
+          <p class="text-gray-600 text-[15px] leading-relaxed max-w-2xl">
+            숙광숙만 최우수상 포스터입니다. '멈추지 않을 숙명'이라는 슬로건을 중심으로, 숙명여대 홍보 문구를 제안했습니다.
+          </p>
+          <div class="mt-4 flex items-center gap-2 text-[14px] text-gray-400 group-hover:text-[#141414] transition-colors">
+            View Project <svg class="icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="py-20 md:py-32 border-t border-gray-200/60 grid grid-cols-1 md:grid-cols-12 gap-8">
+      <div class="md:col-span-4">
+        <h2 class="text-[15px] font-medium mb-1">About Me</h2>
+        <p class="text-gray-400 text-[13px]">Lee Boa</p>
+      </div>
+      <div class="md:col-span-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-16">
+          <!-- Profile Info -->
+          <div>
+            <h4 class="text-[15px] font-medium mb-6">Profile</h4>
+            <ul class="text-[14px] text-gray-500 space-y-4">
+              <li class="flex flex-col"><strong class="font-medium text-[#141414] mb-1">Education</strong> 숙명여자대학교 시각영상디자인과 3학년<br/>(Seoul, South Korea)</li>
+              <li class="flex flex-col"><strong class="font-medium text-[#141414] mb-1">GPA</strong> 4.2 / 4.5</li>
+              <li class="flex flex-col"><strong class="font-medium text-[#141414] mb-1">Contact</strong> shebekdq3@sookmyung.ac.kr</li>
+            </ul>
+          </div>
+
+          <!-- Skills -->
+          <div>
+            <h4 class="text-[15px] font-medium mb-6">My Skills</h4>
+            <ul class="text-[14px] text-gray-500 space-y-2">
+              <li>Adobe Illustrator</li>
+              <li>Adobe Photoshop</li>
+              <li>Adobe InDesign</li>
+              <li>Adobe Premiere Pro</li>
+              <li>Adobe After Effects</li>
+              <li>Figma</li>
+            </ul>
+          </div>
+
+          <!-- Strengths -->
+          <div>
+            <h4 class="text-[15px] font-medium mb-6">Strengths</h4>
+            <ul class="text-[14px] text-gray-500 space-y-5">
+              <li>
+                <strong class="font-medium text-[#141414] block mb-1">유연한 계획 수립</strong>
+                Strategic Planning
+              </li>
+              <li>
+                <strong class="font-medium text-[#141414] block mb-1">회복탄력성</strong>
+                High Resilience
+              </li>
+            </ul>
+          </div>
+
+          <!-- Interests -->
+          <div>
+            <h4 class="text-[15px] font-medium mb-6">Interests</h4>
+            <ul class="text-[14px] text-gray-500 space-y-6">
+              <li>
+                <strong class="font-medium text-[#141414] block mb-1">하이킹 및 드라이브</strong>
+                공간의 변화를 경험하는 것을 즐깁니다.
+              </li>
+              <li>
+                <strong class="font-medium text-[#141414] block mb-1">지리학, 지정학 및 조경</strong>
+                지형의 형태와 배치가 주는 힘에 관심이 많습니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="px-6 md:px-10 pt-20 pb-10 border-t border-gray-200/60 overflow-hidden flex flex-col items-center">
+    <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 text-[13px]">
+      <div>
+        <div class="font-medium text-[#141414] mb-1">LEE BOA @2026</div>
+        <div class="text-gray-400">All rights reserved</div>
+      </div>
+      <div>
+        <div class="font-medium text-[#141414] mb-1">Made in</div>
+        <div class="text-gray-400">Seoul, South Korea</div>
+      </div>
+      <div>
+        <div class="font-medium text-[#141414] mb-1">Interested to work with me?</div>
+        <a href="mailto:shebekdq3@sookmyung.ac.kr" class="text-gray-400 hover:text-[#141414] transition-colors">shebekdq3@sookmyung.ac.kr</a>
+      </div>
+    </div>
+    
+    <!-- Massive Typography -->
+    <div class="w-full flex flex-col justify-center items-center mt-10">
+      <h1 class="text-[18vw] font-bold tracking-tighter leading-none text-[#141414] select-none whitespace-nowrap">
+        Portpolio
+      </h1>
+      <button 
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        class="mt-[80px] text-gray-400 hover:text-[#141414] transition-colors text-sm font-medium"
+      >
+        Back to the top
+      </button>
+    </div>
+  </footer>
+
+  <!-- Modals Container -->
+  <div id="modal-container"></div>
+
+  <!-- Templates for Modals -->
+  <template id="about-modal-template">
+    <div class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-black/20 backdrop-blur-sm transition-opacity" onclick="closeModal()">
+      <div class="bg-white w-full max-w-3xl shadow-2xl relative rounded-[15px] overflow-hidden modal-content-enter modal-content-enter-active" onclick="event.stopPropagation()">
+        <div class="p-8 md:p-12 overflow-y-auto max-h-[90vh] no-scrollbar">
+          <button class="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors z-10" onclick="closeModal()">
+            <svg class="icon w-6 h-6" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+          <h2 class="text-3xl font-medium mb-6 tracking-tight">About Lee Boa</h2>
+          <div class="space-y-6 text-gray-600 leading-relaxed text-[15px]">
+            <p>시각 및 미디어 디자이너로서 저는 디지털 환경과 인간의 감정이 교차하는 지점에 깊은 관심을 가지고 있습니다. 저의 디자인 철학은 미적으로 아름다울 뿐만 아니라, 단순한 결과물이나 수익 이상의 가치를 담아 우리 공동체가 더 나은 방향으로 연결되는 직관적인 경험을 창조하는 데 중점을 둡니다.</p>
+            <p>현재 숙명여자대학교 시각영상디자인과 3학년 재학 중이며, 그래픽 디자인, UI/UX, 영상 제작 등 다양한 매체를 통해 디자인합니다. 저는 좋은 디자인이 복잡한 아이디어를 단순하고 매력적인 방식으로 전달하며, 우리가 살아가는 세상을 더 가치 있고 살기 좋은 곳으로 만드는 강력한 커뮤니케이션 도구라고 믿습니다.</p>
+            <p>As a visual and media designer, I am deeply interested in the intersection of digital environments and human emotion. My design philosophy focuses on creating intuitive experiences that are not only aesthetically pleasing, but also carry value beyond simple outcomes or profits, connecting our community in a better direction.</p>
+            <p>Currently in my junior year studying Visual & Media Design at Sookmyung Women's University, I design across various mediums including graphic design, UI/UX, and video production. I believe that good design is a powerful communication tool that conveys complex ideas in a simple, engaging way, and makes the world we live in a more valuable and livable place.</p>
+            <div class="pt-8 border-t border-gray-100 mt-8">
+              <h3 class="text-lg font-medium text-black mb-5 tracking-tight">Core Competencies</h3>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[14px]">
+                <li class="flex items-center gap-3"><div class="w-1 h-1 bg-black rounded-full"></div> UI/UX & Web Design</li>
+                <li class="flex items-center gap-3"><div class="w-1 h-1 bg-black rounded-full"></div> Media & Video Production</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="work-summerbeach-template">
+    <div class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-black/20 backdrop-blur-sm transition-opacity" onclick="closeModal()">
+      <div class="bg-white w-full max-w-4xl shadow-2xl relative rounded-[15px] overflow-hidden modal-content-enter modal-content-enter-active" onclick="event.stopPropagation()">
+        <div class="p-8 md:p-12 overflow-y-auto max-h-[90vh] no-scrollbar">
+          <button class="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors z-10" onclick="closeModal()">
+            <svg class="icon w-6 h-6" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+          <div class="flex flex-col gap-8">
+            <div class="aspect-[16/9] bg-gray-100 overflow-hidden relative w-full">
+               <video src="https://raw.githubusercontent.com/boaesa/Portpolio/f1abc2623092a0fc2d090b5755984b0cc6618ca5/Runway_ocean.mp4" autoplay loop muted playsinline preload="metadata" controls class="object-cover w-full h-full"></video>
+            </div>
+            <div>
+              <div class="flex gap-[2px] text-[11px] font-medium tracking-wider mb-4">
+                <span class="bg-[#141414] text-white px-1.5 py-0.5">2025</span>
+                <span class="bg-[#141414] text-white px-1.5 py-0.5">Media Design</span>
+              </div>
+              <h2 class="text-3xl font-medium mb-6 tracking-tight">Ambience Video: Summer Beach</h2>
+              <div class="space-y-4 text-gray-600 leading-relaxed text-[15px]">
+                <p>3D 캐릭터와 파스텔 톤의 해변 배경을 활용한 앰비언스 영상입니다. 정서적 안정과 휴식을 테마로 하여, 캐릭터의 배치와 환경의 조화를 시각화하는 데 집중했습니다.</p>
+                <p>부드러운 색감과 잔잔한 파도 소리, 그리고 여유롭게 휴식을 취하는 캐릭터의 모습을 통해 시청자에게 편안함을 전달하고자 기획되었습니다. 작업 과정에서 3D 모델링의 질감 표현과 조명 설정에 많은 공을 들여 따뜻하고 몽환적인 분위기를 연출했습니다.</p>
+              </div>
+              <div class="mt-8 pt-6 border-t border-gray-100 text-[13px] text-gray-400">
+                Tools used: Midjourney, Runway AI
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="work-sandam-template">
+    <div class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-black/20 backdrop-blur-sm transition-opacity" onclick="closeModal()">
+      <div class="bg-white w-full max-w-4xl shadow-2xl relative rounded-[15px] overflow-hidden modal-content-enter modal-content-enter-active" onclick="event.stopPropagation()">
+        <div class="p-8 md:p-12 overflow-y-auto max-h-[90vh] no-scrollbar">
+          <button class="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors z-10" onclick="closeModal()">
+            <svg class="icon w-6 h-6" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+          <div class="flex flex-col gap-8">
+            <div class="aspect-[16/9] bg-gray-100 overflow-hidden relative w-full">
+               <video src="https://raw.githubusercontent.com/boaesa/Portpolio/9bcfbecb226a711ffa33a995c19021303f384fd1/Sequence%2001_1.mp4" autoplay muted playsinline preload="metadata" controls class="object-cover w-full h-full" onended="setTimeout(() => { this.play().catch(e => console.error(e)) }, 2500)"></video>
+            </div>
+            <div class="flex gap-4 w-full">
+              <div class="w-1/2 aspect-[16/10] bg-gray-100 overflow-hidden relative">
+                <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/BD_pattern_new.jpg" alt="Pattern Sandam 1" loading="lazy" decoding="async" class="object-cover w-full h-full" referrerpolicy="no-referrer" />
+              </div>
+              <div class="w-1/2 aspect-[16/10] bg-gray-100 overflow-hidden relative">
+                <img src="https://raw.githubusercontent.com/boaesa/Portpolio/16c10bed5aaec15cbc09d2785289d41a0afae1e2/%E1%84%87%E1%85%B3%E1%84%83%E1%85%B5%20%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB2_%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A2%E1%86%A8.png" alt="Pattern Sandam 2" loading="lazy" decoding="async" class="object-cover w-full h-full" referrerpolicy="no-referrer" />
+              </div>
+            </div>
+            <div>
+              <div class="flex gap-[2px] text-[11px] font-medium tracking-wider mb-4">
+                <span class="bg-[#141414] text-white px-1.5 py-0.5">2025</span>
+                <span class="bg-[#141414] text-white px-1.5 py-0.5">Branding Design</span>
+              </div>
+              <h2 class="text-3xl font-medium mb-6 tracking-tight">Project: Sandam</h2>
+              <div class="space-y-4 text-gray-600 leading-relaxed text-[15px]">
+                <p>'산이 들려주는 이야기'라는 의미를 담아, 도심 속 현대인에게 산림 보전의 가치와 생태계의 생명력을 전하는 캠페인 브랜딩 프로젝트입니다. 청록과 연두의 컬러 시스템을 통해 자연 본연의 생동감과 인간과의 조화로운 공존을 감각적으로 시각화했습니다. 멸종위기종 보호 포스터와 생태 교육 콘텐츠, 제로 웨이스트를 지향하는 친환경 굿즈 및 모바일 앱까지 온·오프라인을 아우르는 통합적인 브랜드 경험을 설계했습니다. 부드러운 곡선과 여백 중심의 디자인을 활용하여 인간과 자연이 조화롭게 연결되는 '공존'의 정체성을 일관되게 전달하고자 했습니다.</p>
+              </div>
+              <div class="mt-8 pt-6 border-t border-gray-100 text-[13px] text-gray-400">
+                Tools used: Adobe Illustrator, Adobe After Effect
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="work-calendar-template">
+    <div class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-black/20 backdrop-blur-sm transition-opacity" onclick="closeModal()">
+      <div class="bg-white w-full max-w-4xl shadow-2xl relative rounded-[15px] overflow-hidden modal-content-enter modal-content-enter-active" onclick="event.stopPropagation()">
+        <div class="p-8 md:p-12 overflow-y-auto max-h-[90vh] no-scrollbar">
+          <button class="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors z-10" onclick="closeModal()">
+            <svg class="icon w-6 h-6" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+          <div class="flex flex-col gap-8">
+            <div class="bg-gray-100 overflow-hidden relative w-full">
+               <img src="https://raw.githubusercontent.com/boaesa/Portpolio/e23eabf7519e8d34e0a79b32e11ac0a4102dbc18/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%85%E1%85%A2%E1%86%A8.jpg" alt="Poster Annual Event Calendar" loading="lazy" decoding="async" class="w-full h-auto" referrerpolicy="no-referrer" />
+            </div>
+            <div>
+              <div class="flex gap-[2px] text-[11px] font-medium tracking-wider mb-4">
+                <span class="bg-[#141414] text-white px-1.5 py-0.5">2025</span>
+                <span class="bg-[#141414] text-white px-1.5 py-0.5">Editorial Design</span>
+              </div>
+              <h2 class="text-3xl font-medium mb-6 tracking-tight">Poster: Annual Event Calendar</h2>
+              <div class="space-y-4 text-gray-600 leading-relaxed text-[15px]">
+                <p>2025년 월간 주요 일정을 한눈에 파악할 수 있도록 설계한 캘린더 정보 디자인 프로젝트입니다. 각 부서의 흐름을 수직적인 컬러 라인으로 연결하여 시각적 위계를 정립하고, 방대한 양의 텍스트 데이터를 그리드 시스템 안에 배치했습니다. 사용자가 필요한 일정을 직관적으로 찾아낼 수 있도록 가독성과 기능적 효율성에 집중했습니다.</p>
+              </div>
+              <div class="mt-8 pt-6 border-t border-gray-100 text-[13px] text-gray-400">
+                Tools used: Adobe Illustrator
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="work-nonstop-template">
+    <div class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-black/20 backdrop-blur-sm transition-opacity" onclick="closeModal()">
+      <div class="bg-white w-full max-w-4xl shadow-2xl relative rounded-[15px] overflow-hidden modal-content-enter modal-content-enter-active" onclick="event.stopPropagation()">
+        <div class="p-8 md:p-12 overflow-y-auto max-h-[90vh] no-scrollbar">
+          <button class="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors z-10" onclick="closeModal()">
+            <svg class="icon w-6 h-6" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+          <div class="flex flex-col gap-8">
+            <div class="bg-gray-100 overflow-hidden relative w-full">
+               <img src="https://raw.githubusercontent.com/boaesa/Portpolio/d3cad62991b66bddaea28b8ca7b431433e5bb045/%5B%EC%88%99%EA%B4%91%EC%88%99%EB%A7%8C%20%EC%8B%9C%EC%A6%8C11-%EA%B4%91%EA%B3%A0%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-1%EB%B2%88%5D%20%EC%9D%B4%EB%B3%B4%EC%95%84_%EC%8B%9C%EA%B0%81%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8%EA%B3%BC_2415462.png" alt="Poster Nonstop" loading="lazy" decoding="async" class="w-full h-auto" referrerpolicy="no-referrer" />
+            </div>
+            <div>
+              <div class="flex gap-[2px] text-[11px] font-medium tracking-wider mb-4">
+                <span class="bg-[#141414] text-white px-1.5 py-0.5">2025</span>
+                <span class="bg-[#141414] text-white px-1.5 py-0.5">Advertising Design</span>
+              </div>
+              <h2 class="text-3xl font-medium mb-6 tracking-tight">Poster: Nonstop</h2>
+              <div class="space-y-4 text-gray-600 leading-relaxed text-[15px]">
+                <p>숙광숙만 최우수상 포스터입니다. '멈추지 않을 숙명'이라는 슬로건을 중심으로, 숙명여대 홍보 문구를 제안했습니다.</p>
+                <p>타이포그래피의 강렬한 대비와 역동적인 레이아웃을 통해 끊임없이 나아가는 학생들의 열정과 에너지를 시각적으로 표현했습니다. 간결하면서도 힘 있는 메시지 전달을 위해 불필요한 장식을 배제하고 텍스트 자체의 조형성에 집중한 작업입니다.</p>
+              </div>
+              <div class="mt-8 pt-6 border-t border-gray-100 text-[13px] text-gray-400">
+                Tools used: Midjourney AI
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    // Update time
+    function updateTime() {
+      const now = new Date();
+      document.getElementById('current-time').textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+
+    // Accordion toggle
+    function toggleSection(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+      
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        content.classList.add('block');
+        icon.innerHTML = '<svg class="icon w-5 h-5" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg>'; // ChevronUp
+      } else {
+        content.classList.add('hidden');
+        content.classList.remove('block');
+        icon.innerHTML = '<svg class="icon w-5 h-5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>'; // ChevronDown
+      }
+    }
+
+    // Modal logic
+    const modalContainer = document.getElementById('modal-container');
+
+    function openModal(templateId) {
+      const template = document.getElementById(templateId + '-template');
+      if (!template) return;
+      
+      modalContainer.innerHTML = '';
+      modalContainer.appendChild(template.content.cloneNode(true));
+      document.body.style.overflow = 'hidden';
+      
+      // Add escape key listener
+      document.addEventListener('keydown', handleEscape);
+    }
+
+    function openWorkModal(workId) {
+      openModal('work-' + workId);
+    }
+
+    function closeModal() {
+      const modal = modalContainer.firstElementChild;
+      if (!modal) return;
+      
+      // Add exit animations
+      modal.classList.add('modal-exit-active');
+      const content = modal.querySelector('.modal-content-enter');
+      if (content) {
+        content.style.transform = 'scale(0.95)';
+        content.style.opacity = '0';
+      }
+      
+      setTimeout(() => {
+        modalContainer.innerHTML = '';
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', handleEscape);
+      }, 200);
+    }
+
+    function handleEscape(e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
