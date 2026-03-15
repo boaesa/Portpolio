@@ -105,15 +105,14 @@
         <div class="text-[12vw] font-bold leading-none tracking-tighter cursor-pointer group relative py-4" onclick="openModal('about-modal')">
           <span class="relative z-10 inline-block px-2 bg-clip-text text-transparent bg-[linear-gradient(to_right,#10b981,#0ea5e9,#3b82f6,#6366f1,#8b5cf6)] group-hover:scale-105 transition-all duration-500 ease-in-out">LEE BOA</span>
         </div>
-        <div class="mt-12 flex items-center gap-2 text-[15px] text-gray-400 hover:text-[#141414] transition-colors font-normal tracking-normal cursor-pointer" onclick="openModal('about-modal')">
-          Read more about me 
-          <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <div class="mt-12 flex items-center text-[15px] text-gray-400 hover:text-[#141414] transition-colors font-normal tracking-normal cursor-pointer" onclick="openModal('about-modal')">
+          Read more about me
         </div>
       </div>
     </section>
 
     <!-- User Experience Design I Section -->
-    <section id="ux-design-1" class="py-20 md:py-32 border-t border-gray-200/60 grid grid-cols-1 md:grid-cols-12 gap-8">
+    <section id="ux-design-1" class="py-20 md:py-32 border-t border-gray-200/60 grid grid-cols-1 md:grid-cols-12 gap-8 transition-all duration-300">
       <div class="md:col-span-4 flex justify-between items-start cursor-pointer group" onclick="toggleSection('ux-content', 'ux-icon')">
         <div>
           <h2 class="text-[15px] font-medium mb-1 group-hover:text-gray-600 transition-colors">User Experience Design I</h2>
@@ -124,25 +123,28 @@
         </button>
       </div>
       <div id="ux-content" class="md:col-span-8 space-y-24 block">
-        <div class="text-gray-400 text-[14px] italic">
-          프로젝트가 곧 업데이트될 예정입니다.
+        <div class="flex flex-wrap items-center gap-8">
+          <span class="text-gray-400 font-normal text-[14px] ml-[80px]">W03</span>
+          <button onclick="openModal('ux-observation')" class="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 hover:border-black hover:bg-black hover:text-white transition-colors text-[14px] font-medium">
+            #Observation & Interview
+          </button>
         </div>
       </div>
     </section>
 
     <!-- Works Section -->
-    <section id="works" class="py-20 md:py-32 border-t border-gray-200/60 grid grid-cols-1 md:grid-cols-12 gap-8">
+    <section id="works" class="py-10 md:py-16 border-t border-gray-200/60 grid grid-cols-1 md:grid-cols-12 gap-8 transition-all duration-300">
       <div class="md:col-span-4 flex justify-between items-start cursor-pointer group" onclick="toggleSection('works-content', 'works-icon')">
         <div>
           <h2 class="text-[15px] font-medium mb-1 group-hover:text-gray-600 transition-colors">Featured Works</h2>
           <p class="text-gray-400 text-[13px]">2024 - 2026</p>
         </div>
         <button class="text-gray-400 group-hover:text-[#141414] transition-colors" id="works-icon">
-          <svg class="icon w-5 h-5" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg>
+          <svg class="icon w-5 h-5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
         </button>
       </div>
       
-      <div id="works-content" class="md:col-span-8 space-y-24 block">
+      <div id="works-content" class="md:col-span-8 space-y-24 hidden">
         <div class="flex justify-between items-center text-[15px] font-medium border-b border-gray-200/60 pb-4 mb-8">
           <a href="#works" class="flex items-center gap-1 hover:opacity-70 transition-opacity">Check all projects <svg class="icon w-4 h-4" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           <a href="mailto:shebekdq3@sookmyung.ac.kr" class="flex items-center gap-1 hover:opacity-70 transition-opacity">Contact Me <svg class="icon w-4 h-4" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -335,7 +337,7 @@
       </h1>
       <button 
         onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-        class="mt-[80px] text-gray-400 hover:text-[#141414] transition-colors text-sm font-medium"
+        class="mt-[110px] text-gray-400 hover:text-[#141414] transition-colors text-sm font-medium"
       >
         Back to the top
       </button>
@@ -346,6 +348,106 @@
   <div id="modal-container"></div>
 
   <!-- Templates for Modals -->
+  <template id="ux-observation-template">
+    <div class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-black/20 backdrop-blur-sm transition-opacity" onclick="closeModal()">
+      <div class="bg-white w-full max-w-3xl shadow-2xl relative rounded-[15px] overflow-hidden modal-content-enter modal-content-enter-active" onclick="event.stopPropagation()">
+        <div class="p-8 md:p-12 overflow-y-auto max-h-[90vh] no-scrollbar">
+          <button class="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors z-10" onclick="closeModal()">
+            <svg class="icon w-6 h-6" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+          
+          <div class="space-y-8 text-gray-600 leading-relaxed text-[15px]">
+            <!-- Header -->
+            <div>
+              <h2 class="text-3xl font-medium mb-4 tracking-tight text-black">Observation & Interview</h2>
+              <p class="text-[16px]">고령층의 일상적 공간 활용과 디지털 인터페이스 경험에 대한 관찰 기록입니다.</p>
+            </div>
+            
+            <hr class="border-gray-100" />
+
+            <!-- 1. 현장 관찰 -->
+            <div>
+              <h3 class="text-xl font-medium text-black mb-4">1. 현장 관찰 (Field Observation)</h3>
+              <ul class="list-disc pl-5 space-y-1 mb-6">
+                <li><strong>장소:</strong> 맥도날드 종로3가점 (탑골공원 인근)</li>
+                <li><strong>일시:</strong> 2026년 3월 13일 (금) 09:00, 13:00</li>
+                <li><strong>대상:</strong> 연령대 60-80대 위주 이용객</li>
+              </ul>
+              <h4 class="text-lg font-medium text-black mb-2">주요 행동 패턴</h4>
+              <ul class="list-disc pl-5 space-y-2">
+                <li><strong>보행 및 소통:</strong> 느린 걸음으로 이동하며, 타인에게 말을 걸거나 합석하는 것에 거부감이 없음.</li>
+                <li><strong>기기 사용:</strong> 이어폰 사용이 드물고 스피커폰 통화 선호. 백팩, 운동화, 기능성 의류 등 편한 복장 위주.</li>
+                <li><strong>수령 대기:</strong> 수령대 앞에서 어색하게 서성이는 모습이 관찰됨. 추측: 매장 내 소음이 있는 상태에서 주문번호판이 없어 직원의 육성에만 의존해야 함.</li>
+              </ul>
+            </div>
+
+            <hr class="border-gray-100" />
+
+            <!-- 2. 사용자 인터뷰 -->
+            <div>
+              <h3 class="text-xl font-medium text-black mb-4">2. 사용자 인터뷰 (User Interview)</h3>
+              <ul class="list-disc pl-5 space-y-1 mb-6">
+                <li><strong>대상:</strong> 서울 및 경기도 거주 60-80대</li>
+                <li><strong>일시:</strong> 2026년 3월 14일 (토)</li>
+              </ul>
+
+              <div class="space-y-6">
+                <div>
+                  <h4 class="text-lg font-medium text-black mb-2">키오스크 (Kiosk)</h4>
+                  <div class="bg-gray-50 p-5 rounded-[12px] space-y-4">
+                    <div>
+                      <strong class="text-black block mb-1">감정</strong>
+                      <p>기계 자체에 대한 두려움이 있으며, 사람이 직접 반겨주길 희망함.</p>
+                    </div>
+                    <div>
+                      <strong class="text-black block mb-1">체계</strong>
+                      <ul class="list-disc pl-5 space-y-1">
+                        <li><strong>가독성:</strong> 글씨 크기가 작고 어색해서 익숙하지 않음.</li>
+                        <li><strong>흐름:</strong> 메뉴 선택 순서와 '바구니 담기' 시스템 이해가 어려움.</li>
+                        <li><strong>불안 요소:</strong> 조작 실수로 화면이 처음으로 돌아가 버릴까 봐 무서움.</li>
+                        <li><strong>결제 및 피드백:</strong> 카드 삽입 위치와 수거 타이밍을 알기 어렵고, 번호표 출력 여부도 불확실함.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="text-lg font-medium text-black mb-2">자동차 인터페이스 (Automotive Interface)</h4>
+                  <div class="bg-gray-50 p-5 rounded-[12px] space-y-4">
+                    <div>
+                      <strong class="text-black block mb-1">감정</strong>
+                      <p>굳이 필요성을 느끼지 못하며, 새로운 기능을 연구하고 배우는 것을 귀찮아함. 자주 쓰지 않는 기능은 배워도 잊어버려 무의미하게 느낌.</p>
+                    </div>
+                    <div>
+                      <strong class="text-black block mb-1">체계</strong>
+                      <ul class="list-disc pl-5 space-y-1">
+                        <li><strong>조작:</strong> 전자식 다이얼 변속기나 조이스틱형 레버처럼 힘을 주어 조작해야 하는 방식이 힘듦.</li>
+                        <li><strong>언어 및 기호:</strong> 아이콘만으로는 의미 파악이 안 되며, '씨푸드' 같은 영문 표기가 생소해 사진에 의존함.</li>
+                        <li><strong>가이드:</strong> 활자 중심의 설명서보다는 직접 시연을 보거나 느린 영상 매뉴얼을 선호함.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr class="border-gray-100" />
+
+            <!-- 3. Needs & Insights -->
+            <div>
+              <h3 class="text-xl font-medium text-black mb-4">3. Needs & Insights</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li><strong>시연 필요성:</strong> 텍스트 설명보다 사람이 직접 보여주는 시연 선호.</li>
+                <li><strong>영상 가이드:</strong> 인터넷이나 책자 대신 유튜브 등을 통한 '느린 영상' 가이드 배포 희망.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
   <template id="about-modal-template">
     <div class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-black/20 backdrop-blur-sm transition-opacity" onclick="closeModal()">
       <div class="bg-white w-full max-w-3xl shadow-2xl relative rounded-[15px] overflow-hidden modal-content-enter modal-content-enter-active" onclick="event.stopPropagation()">
@@ -515,15 +617,24 @@
     function toggleSection(contentId, iconId) {
       const content = document.getElementById(contentId);
       const icon = document.getElementById(iconId);
+      const section = content.closest('section');
       
       if (content.classList.contains('hidden')) {
         content.classList.remove('hidden');
         content.classList.add('block');
         icon.innerHTML = '<svg class="icon w-5 h-5" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg>'; // ChevronUp
+        if (section) {
+          section.classList.remove('py-10', 'md:py-16');
+          section.classList.add('py-20', 'md:py-32');
+        }
       } else {
         content.classList.add('hidden');
         content.classList.remove('block');
         icon.innerHTML = '<svg class="icon w-5 h-5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>'; // ChevronDown
+        if (section) {
+          section.classList.remove('py-20', 'md:py-32');
+          section.classList.add('py-10', 'md:py-16');
+        }
       }
     }
 
