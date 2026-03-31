@@ -125,11 +125,19 @@
           </div>
         </div>
         <div id="ux-content" class="block mt-8 md:mt-12 transition-all duration-300">
-            <div class="flex flex-wrap items-center gap-8">
-              <span class="text-gray-400 font-normal text-[14px]">W03</span>
-              <button onclick="openModal('ux-observation')" class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 hover:border-transparent active:border-transparent hover:text-[#171717] active:text-[#171717] hover:bg-[linear-gradient(45deg,rgba(16,185,129,0.1),rgba(14,165,233,0.1),rgba(59,130,246,0.1),rgba(99,102,241,0.1),rgba(139,92,246,0.1))] active:bg-[linear-gradient(45deg,rgba(16,185,129,0.1),rgba(14,165,233,0.1),rgba(59,130,246,0.1),rgba(99,102,241,0.1),rgba(139,92,246,0.1))] transition-all duration-300 hover:scale-105 active:scale-95 text-[14px] font-medium">
-                #Observation & Interview
-              </button>
+            <div class="flex flex-col gap-6">
+              <div class="flex flex-wrap items-center gap-8">
+                <span class="text-gray-400 font-normal text-[14px]">W03</span>
+                <button onclick="openModal('ux-observation')" class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 hover:border-transparent active:border-transparent hover:text-[#171717] active:text-[#171717] hover:bg-[linear-gradient(45deg,rgba(16,185,129,0.1),rgba(14,165,233,0.1),rgba(59,130,246,0.1),rgba(99,102,241,0.1),rgba(139,92,246,0.1))] active:bg-[linear-gradient(45deg,rgba(16,185,129,0.1),rgba(14,165,233,0.1),rgba(59,130,246,0.1),rgba(99,102,241,0.1),rgba(139,92,246,0.1))] transition-all duration-300 hover:scale-105 active:scale-95 text-[14px] font-medium">
+                  #Observation & Interview
+                </button>
+              </div>
+              <div class="flex flex-wrap items-center gap-8">
+                <span class="text-gray-400 font-normal text-[14px]">W04</span>
+                <button onclick="openModal('ux-w04')" class="inline-flex items-center px-4 py-2 rounded-full border border-gray-300 hover:border-transparent active:border-transparent hover:text-[#171717] active:text-[#171717] hover:bg-[linear-gradient(45deg,rgba(16,185,129,0.1),rgba(14,165,233,0.1),rgba(59,130,246,0.1),rgba(99,102,241,0.1),rgba(139,92,246,0.1))] active:bg-[linear-gradient(45deg,rgba(16,185,129,0.1),rgba(14,165,233,0.1),rgba(59,130,246,0.1),rgba(99,102,241,0.1),rgba(139,92,246,0.1))] transition-all duration-300 hover:scale-105 active:scale-95 text-[14px] font-medium">
+                  #용산아이파크몰의 길찾기 조사
+                </button>
+              </div>
             </div>
           </div>
       </section>
@@ -705,6 +713,151 @@
                 Tools used: Midjourney AI
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="ux-w04-template">
+    <div class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-[#171717]/20 backdrop-blur-sm transition-opacity" onclick="closeModal()">
+      <div class="bg-[#FAFAFA] w-full max-w-3xl shadow-2xl relative rounded-[15px] overflow-hidden modal-content-enter modal-content-enter-active" onclick="event.stopPropagation()">
+        <div class="p-8 md:p-12 overflow-y-auto max-h-[90vh] no-scrollbar">
+          <button class="absolute top-6 right-6 text-gray-400 hover:text-[#171717] transition-colors z-10" onclick="closeModal()">
+            <svg class="icon w-6 h-6" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+          
+          <div class="space-y-12 text-gray-600 leading-relaxed text-[15px]">
+            <!-- Header -->
+            <div>
+              <h2 class="text-3xl font-medium mb-4 tracking-tight text-[#171717]">용산아이파크몰의 길찾기 조사</h2>
+            </div>
+            
+            <hr class="border-gray-100" />
+
+            <!-- 코어카테고리 3개 / 정보판별 취약점 / 결과 -->
+            <div>
+              <h3 class="text-xl font-bold text-[#171717] mb-6">코어카테고리 3개 / 정보판별 취약점 / 결과</h3>
+              
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                  <h4 class="text-lg font-bold text-[#171717] mb-3">1. 건물 자체의 문제</h4>
+                  <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>표지판</li>
+                    <li>복잡한 건물 구조</li>
+                  </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                  <h4 class="text-lg font-bold text-[#171717] mb-3">2. 개인의 문제</h4>
+                  <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>무지</li>
+                    <li>길치</li>
+                    <li>학습장벽</li>
+                    <li>상상과 다름</li>
+                  </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                  <h4 class="text-lg font-bold text-[#171717] mb-3">3. 타인과의 상호작용</h4>
+                  <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>인적 정보 의존</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="flex flex-col md:flex-row gap-6 mb-8">
+                <div class="flex-1 bg-gray-50 p-6 rounded-xl border border-gray-200">
+                  <h4 class="text-lg font-bold text-[#171717] mb-3">→ 정보판별 취약점</h4>
+                  <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>구조 파악의 어려움</li>
+                    <li>표기 이해 어려움</li>
+                    <li>지도 이해의 어려움</li>
+                    <li>구두 안내 선호</li>
+                  </ul>
+                </div>
+                <div class="flex-1 bg-gray-50 p-6 rounded-xl border border-gray-200">
+                  <h4 class="text-lg font-bold text-[#171717] mb-3">→ 결과(증상)</h4>
+                  <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>길을 헤맨다</li>
+                    <li>시간을 허비한다</li>
+                    <li>스트레스를 받는다</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="bg-[#171717] text-[#FAFAFA] p-6 rounded-xl">
+                <strong class="text-lg block mb-2">스토리라인:</strong>
+                <p class="text-gray-300">3050세대의 용산 아이파크몰 이용객들은 불친절한 건물 시스템과 개인의 공간감각 부족으로 인해 건물 구조 이해가 힘들고, 결국 길을 헤매게 되는 상황에 놓인다.</p>
+              </div>
+            </div>
+
+            <hr class="border-t-[2px] border-gray-200" />
+
+            <!-- 인사이트 -->
+            <div>
+              <h2 class="text-2xl font-bold text-[#171717] mb-6">[인사이트]</h2>
+              
+              <div class="mb-8">
+                <h3 class="text-lg font-bold text-[#171717] mb-3">Step 5. 인사이트 도출(결과)</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+                  <li>이 과정을 통해 페인포인트, 문제 정의, 기회 요인 도출
+                    <ul class="list-[circle] list-inside ml-6 mt-2 space-y-1 text-gray-600">
+                      <li>예) 페인포인트: '중장년층이 콘텐츠와 광고를 구분하지 못한 채 소비 행동으로 직결된다는 점'</li>
+                      <li>예) 기회 요인: '중장년층 맞춤형 팩트체크 기능', '유튜브 알고리즘에 의존하지 않는 능동적 정보 탐색을 유도하는 UX'</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mb-8">
+                <h3 class="text-lg font-bold text-[#171717] mb-3">페인포인트</h3>
+                <p class="text-gray-700 bg-red-50 p-4 rounded-lg border border-red-100">
+                  3050 세대가 복잡한 쇼핑몰 구조와 불친절한 기표(표지판) 사이에서 본인의 멘탈 모델을 적용하지 못한 채, 길찾기에 과도한 인지적 에너지를 소모하며 스트레스를 받는다는 점
+                </p>
+              </div>
+
+              <div class="mb-10">
+                <h3 class="text-lg font-bold text-[#171717] mb-3">기회요인: 공간 이해를 돕는 시각 중심의 길찾기 UX 설계</h3>
+                <ul class="list-disc list-inside space-y-3 text-gray-700 bg-blue-50 p-6 rounded-xl border border-blue-100">
+                  <li>예: 지도보다 <strong class="text-[#171717]">'동선 기반 안내'</strong>, <strong class="text-[#171717]">색상·아이콘 중심 네비게이션</strong></li>
+                  <li>사용자가 선호하는 구두 안내의 직관성을 디지털 환경에 옮긴 <strong class="text-[#171717]">보이스&텍스트 길찾기 UX</strong></li>
+                  <li>복잡한 평면도 대신, 3050 세대에게 친숙한 <strong class="text-[#171717]">'직접적인 방향 지시'</strong>나 <strong class="text-[#171717]">'랜드마크 중심의 안내'</strong>를 강화하여 탐색 피로도를 낮춤.</li>
+                  <li>심리적 안전감을 주는 <strong class="text-[#171717]">'피드백 루프'</strong> 강화: "지금 잘 가고 계십니다", "10m 앞에 목적지가 있습니다"와 같은 즉각적인 시스템 피드백을 제공하여 사용자의 불안감을 해소하고 자신감을 부여함.</li>
+                </ul>
+              </div>
+
+              <h3 class="text-xl font-bold text-[#171717] mb-6">세부 인사이트 분석</h3>
+              
+              <div class="space-y-6">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <h4 class="text-lg font-bold text-[#171717] mb-2">멘탈 모델의 붕괴</h4>
+                  <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li><strong class="text-[#171717]">추상적 기호와 실제 공간의 괴리:</strong> A구역, 패션파크 같은 명칭이 3050세대의 멘탈 모델과 일치하지 않음. 이들은 구역 이름보다 눈에 보이는 큰 매장(랜드마크)을 기준으로 공간을 인지함.</li>
+                    <li><strong class="text-[#171717]">예측 불가능한 공간 구조와 부족한 피드백</strong>은 사용자의 멘탈 모델을 저하시키며, 경로 확인에 과한 주의력을 쓰게 함. 이는 탐색 중 피로와 서비스 학습 포기를 유발함.</li>
+                    <li>사용자가 생각하는 단어(예: '영화관', '화장실 시설')와 시스템의 키워드가 매칭되지 않아, 디지털 안내 체계에 대한 근본적인 불신이 생김.</li>
+                  </ul>
+                </div>
+
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <h4 class="text-lg font-bold text-[#171717] mb-2">복잡한 구조</h4>
+                  <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li><strong class="text-[#171717]">일관성 없는 매장 배치와 통로 구조</strong>는 사용자가 다음 공간을 예측할 수 없게 만들며, 매 순간 새로운 경로를 탐색해야 하는 과도한 인지적 피로를 유발한다.</li>
+                    <li><strong class="text-[#171717]">명확한 기준점이 없어</strong> 내가 '리빙파크'에 있는지 '패션파크'에 있는지 구분할 수 있는 시각적 단서가 부족함. 공간을 미로처럼 인식하게 만듦.</li>
+                    <li>복잡한 평면도를 해석하는 데 높은 인지적 에너지를 소모함.</li>
+                  </ul>
+                </div>
+
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <h4 class="text-lg font-bold text-[#171717] mb-2">타인에게 의존</h4>
+                  <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>표지판이나 지도를 보고 경로를 해석하는 과정에서 <strong class="text-[#171717]">학습 장벽이 발생</strong>하여, 시스템을 이용하기보다 '사람(인적 정보)'에게 의존하려는 경향이 강해짐.</li>
+                    <li>특히 낯선 환경에 익숙하지 않은 사용자는 정보 해석 능력보다 <strong class="text-[#171717]">'추측'과 '감'에 의존</strong>하게 되며, 이는 길 찾기 실패로 이어짐.</li>
+                    <li>기계의 차가운 정보보다 사람의 구두 안내가 주는 <strong class="text-[#171717]">정서적 확신</strong>을 선호함. 설령 직원의 정보가 부정확하더라도, 혼자 길을 헤매는 '고립감'보다 타인과 연결되어 있다는 안심을 선택하는 심리적 보상 기제가 작동함.</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+
           </div>
         </div>
       </div>
